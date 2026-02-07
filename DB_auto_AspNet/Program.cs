@@ -1,11 +1,13 @@
 using DB_auto_AspNet.Pages.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-// Добавляем контекст в DI-контейнер
-builder.Services.AddDbContext<ApplicationContext>();
-
+// Добавляем контекст в DI-контейнер;
+//builder.Services.AddDbContext<ApplicationContext>();
+builder.Services.AddDbContext<ApplicationContext>(options =>
+    options.UseNpgsql("Host=localhost;Port=5432;Database=VehicleDb;Username=postgres;Password=Passw0rd"));
 
 // Add services to the container.
 builder.Services.AddRazorPages();

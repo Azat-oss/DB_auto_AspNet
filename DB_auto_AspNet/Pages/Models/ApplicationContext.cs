@@ -7,10 +7,15 @@ namespace DB_auto_AspNet.Pages.Models
 
         public DbSet<Vehicle> Vehicles { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+        : base(options)
         {
-            
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=VehicleDb;Username=postgres;Password=Passw0rd");
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+
+        //    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=VehicleDb;Username=postgres;Password=Passw0rd");
+        //}
     }
 }
