@@ -55,7 +55,7 @@ namespace DB_auto_AspNet.Pages.Models
                         _ => f.Random.Decimal(300000, 8000000)
                     });
 
-            context.Vehicles.AddRange(vehicles.Generate(10));
+            context.Vehicles.AddRange(vehicles.Generate(25));
             context.SaveChanges();
         }
     }
