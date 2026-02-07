@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h2 class="display-5 mb-4">Список транспорта</h2>
+    <table class="table table-striped" style="width: 80%; margin: 0 auto;">
+        <thead>
+            <tr>
+                <th>Тип</th>
+                <th>Бренд</th>
+                <th>Модель</th>
+                <th>Год</th>
+                <th>Цена (₽)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vehicle in Model.Vehicles)
+            {
+                <tr>
+                    <td>@vehicle.Type</td>
+                    <td>@vehicle.Brand</td>
+                    <td>@vehicle.Model</td>
+                    <td>@vehicle.Year</td>
+                    <td>@vehicle.Price.ToString("N0")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
